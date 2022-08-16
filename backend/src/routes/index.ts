@@ -53,14 +53,21 @@ routes.post("/vote/:name", async function (req: Request, res: Response) {
       });
     }
     const results = await myDataSource.getRepository(Brother).save(brother);
-    return res.send(results);
+    return (
+      res.header("Access-Control-Allow-Origin", "http://localhost:3000"),
+      res.send(results)
+    );
   } else {
-    return res.send("Not existing brother to vote");
+    return (
+      res.header("Access-Control-Allow-Origin", "http://localhost:3000"),
+      res.send("Not existing brother to vote")
+    );
   }
 });
 
 routes.get("/results", async function (req: Request, res: Response) {
   const brothers = await myDataSource.getRepository(Brother).find();
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.json(brothers.sort((a, b) => a.name.localeCompare(b.name)));
 });
 

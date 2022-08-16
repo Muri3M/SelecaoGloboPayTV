@@ -2,7 +2,7 @@ import axios from "axios";
 import Brother from "../models/Brother";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: "http://localhost:3333",
 });
 
 export async function CheckResults(): Promise<Brother[]> {
