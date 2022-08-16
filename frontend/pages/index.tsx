@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import VotingModal from "../components/organisms/VotingModal";
 
 const Home: NextPage = () => {
-  return <div>start</div>;
+  return <VotingModal />;
 };
 
 export default Home;
