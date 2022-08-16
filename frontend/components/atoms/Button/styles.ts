@@ -12,7 +12,7 @@ export const Container = styled.button`
     width: 320px;
   }
 
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
 
   cursor: pointer;

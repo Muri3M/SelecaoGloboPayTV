@@ -5,7 +5,15 @@ import BrotherContainer from "../../atoms/BrotherContainer";
 import Button from "../../atoms/Button";
 import ResultsContainer from "../../molecules/ResultsContainer";
 
-import { BrothersWrapper, Container, Title, Warning } from "./styles";
+import {
+  BrothersWrapper,
+  ButtonWrapper,
+  Container,
+  Title,
+  TitleWrapper,
+  Warning,
+  WallIcon,
+} from "./styles";
 
 const VotingModal: React.FC = () => {
   const [brothers, setBrothers] = useState<Brother[]>([]);
@@ -41,30 +49,41 @@ const VotingModal: React.FC = () => {
 
   return (
     <Container>
-      <Title>
-        QUEM DEVE SER <strong>ELIMINADO</strong>?
-      </Title>
-      {voted ? (
-        <ResultsContainer voted={selected} brothers={votingResults} />
-      ) : (
+      {brothers.length > 1 ? (
         <>
-          <BrothersWrapper>
-            {brothers.map((brother, index) => {
-              return (
-                <BrotherContainer
-                  key={brother.id}
-                  onClick={() => setSelected(brother.name)}
-                  selected={selected === brother.name}
-                  brother={brother}
-                  number={index + 1}
-                />
-              );
-            })}
-          </BrothersWrapper>
+          <TitleWrapper>
+            <WallIcon src='/images/wallIcon.png' alt='icone do paredao' />
+            <Title>
+              QUEM DEVE SER <strong>ELIMINADO</strong>?
+            </Title>
+          </TitleWrapper>
 
-          <Button onClick={handleClick}>Envie seu voto agora</Button>
-          {failed && <Warning>⛔ Escolha algum Brother ⛔</Warning>}
+          {voted ? (
+            <ResultsContainer voted={selected} brothers={votingResults} />
+          ) : (
+            <>
+              <BrothersWrapper>
+                {brothers.map((brother, index) => {
+                  return (
+                    <BrotherContainer
+                      key={brother.id}
+                      onClick={() => setSelected(brother.name)}
+                      selected={selected === brother.name}
+                      brother={brother}
+                      number={index + 1}
+                    />
+                  );
+                })}
+              </BrothersWrapper>
+              <ButtonWrapper>
+                <Button onClick={handleClick}>Envie seu voto agora</Button>
+                {failed && <Warning>⛔ Escolha algum Brother ⛔</Warning>}
+              </ButtonWrapper>
+            </>
+          )}
         </>
+      ) : (
+        <Title>No momento não temos emparedados</Title>
       )}
     </Container>
   );
