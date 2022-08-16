@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { CheckResults } from "../../../api";
 import Brother from "../../../models/Brother";
 import BrotherMetrics from "../../atoms/BrotherMetrics";
+import VotesPerHourMetrics from "../../atoms/VotesPerHourMetrics";
 
-import { BrothersContainer, Container, Text } from "./styles";
+import { BrothersContainer, Container, Divider, Text } from "./styles";
 
 const Metrics: React.FC = () => {
   const [brothers, setBrothers] = useState<Brother[]>([]);
@@ -26,13 +27,27 @@ const Metrics: React.FC = () => {
 
   return (
     <Container>
-      <Text>Total de geral votos:</Text>
-      <Text style={{ color: "#fc9414" }}> {total}</Text>
-      <BrothersContainer>
-        {brothers.map((brother) => {
-          return <BrotherMetrics key={brother.id} brother={brother} />;
-        })}
-      </BrothersContainer>
+      {brothers.length > 1 ? (
+        <>
+          <Text>Total de geral de votos:</Text>
+          <Text style={{ color: "#fc9414" }}> {total}</Text>
+          <Divider />
+
+          <Text>Votos por emparedado:</Text>
+          <BrothersContainer>
+            {brothers.map((brother) => {
+              return <BrotherMetrics key={brother.id} brother={brother} />;
+            })}
+          </BrothersContainer>
+          <Divider />
+
+          <Text>Votos por Hora:</Text>
+
+          <VotesPerHourMetrics brothers={brothers} />
+        </>
+      ) : (
+        <Text>No momento não temos emparedados</Text>
+      )}
     </Container>
   );
 };
