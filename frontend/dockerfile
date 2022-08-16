@@ -12,6 +12,8 @@ RUN yarn install
 
 COPY . .
 
+ENV NEXT_PUBLIC_SITE_KEY=6Lf7yHkhAAAAAPWsmY5MDoWIbHjLvX1aldXvT0hU
+
 RUN yarn build
 
 EXPOSE 3000

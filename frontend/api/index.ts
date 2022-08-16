@@ -18,23 +18,31 @@ export async function CheckResults(): Promise<Brother[]> {
   return results;
 }
 
-export async function Vote(name: string): Promise<Brother[]> {
+export async function Vote(
+  name: string,
+  recaptcha: string
+): Promise<Brother[] | string> {
   let results: Brother[] = [];
+  let error = "";
   await api
-    .post(`/vote/${name}`)
+    .post(`/vote/${name}/${recaptcha}`)
     .then(async () => {
       await api
         .get("/results")
         .then((response) => {
           results = response.data;
         })
-        .catch((error) => {
-          console.log("Ocorreu o erro:", error);
+        .catch((e) => {
+          e = e.code;
         });
     })
-    .catch((error) => {
-      console.log("Ocorreu o erro:", error);
+    .catch((e) => {
+      error = e.code;
     });
+
+  if (error !== "") {
+    return error;
+  }
 
   return results;
 }

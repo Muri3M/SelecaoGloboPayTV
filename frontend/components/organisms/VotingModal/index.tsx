@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { CheckResults, Vote } from "../../../api";
 import Brother from "../../../models/Brother";
 import BrotherContainer from "../../atoms/BrotherContainer";
@@ -20,8 +21,13 @@ const VotingModal: React.FC = () => {
   const [votingResults, setVotingResults] = useState<Brother[]>([]);
 
   const [selected, setSelected] = useState("");
+  const [recaptcha, setRecaptcha] = useState("empty");
+
   const [voted, setVoted] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [missingSelect, setMissingSelect] = useState(false);
+  const [validate, setValidate] = useState(false);
+
+  const key = process.env.NEXT_PUBLIC_SITE_KEY || "";
 
   useEffect(() => {
     async function getBrothers() {
@@ -34,17 +40,24 @@ const VotingModal: React.FC = () => {
   }, []);
 
   const handleClick = async () => {
+    setMissingSelect(false);
+
     if (selected !== "") {
-      const results = await Vote(selected);
-      setVotingResults(results);
-      setVoted(true);
+      const results = await Vote(selected, recaptcha);
+      if (typeof results !== "string") {
+        setVotingResults(results);
+        setVoted(true);
+      } else {
+        setValidate(true);
+      }
     } else {
-      setFailed(true);
+      setMissingSelect(true);
     }
   };
 
-  function onChange(value: any) {
-    console.log("Captcha value:", value);
+  function handleChange(value: any) {
+    setRecaptcha(value);
+    setValidate(false);
   }
 
   return (
@@ -76,8 +89,12 @@ const VotingModal: React.FC = () => {
                 })}
               </BrothersWrapper>
               <ButtonWrapper>
+                <ReCAPTCHA sitekey={key} onChange={handleChange} />
                 <Button onClick={handleClick}>Envie seu voto agora</Button>
-                {failed && <Warning>⛔ Escolha algum Brother ⛔</Warning>}
+                {missingSelect && (
+                  <Warning>⛔ Escolha algum Brother ⛔</Warning>
+                )}
+                {validate && <Warning>⛔ Valide o ReCaptcha ⛔</Warning>}
               </ButtonWrapper>
             </>
           )}

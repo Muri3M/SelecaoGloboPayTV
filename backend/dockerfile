@@ -12,6 +12,8 @@ RUN yarn install
 
 COPY . .
 
+ENV SECRET_KEY=6Lf7yHkhAAAAABNRJGroRxnL8WSSVTXdhYZmeJfp
+
 EXPOSE 3333
 # Command to run our app
 CMD [ "yarn", "start"]

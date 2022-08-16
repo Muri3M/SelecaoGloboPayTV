@@ -4,6 +4,7 @@ export const Container = styled.button`
   width: 200px;
   height: 50px;
   max-width: 400px;
+  margin-top: 40px;
 
   justify-content: center;
   align-items: center;
