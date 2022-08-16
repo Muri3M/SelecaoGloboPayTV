@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { CheckResults, Vote } from "../../../api";
+import { CheckResults, Vote, CreateSampleVoting } from "../../../api";
 import Brother from "../../../models/Brother";
 import BrotherContainer from "../../atoms/BrotherContainer";
 import Button from "../../atoms/Button";
@@ -60,6 +60,12 @@ const VotingModal: React.FC = () => {
     setValidate(false);
   }
 
+  const createSample = async () => {
+    console.log("oi");
+    const results = await CreateSampleVoting();
+    setBrothers(results);
+  };
+
   return (
     <Container>
       {brothers.length > 1 ? (
@@ -100,7 +106,10 @@ const VotingModal: React.FC = () => {
           )}
         </>
       ) : (
-        <Title>No momento não temos emparedados</Title>
+        <>
+          <Title>No momento não temos emparedados</Title>
+          <Button onClick={createSample}>Criar paredão de amostra</Button>
+        </>
       )}
     </Container>
   );

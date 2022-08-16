@@ -18,6 +18,16 @@ export async function CheckResults(): Promise<Brother[]> {
   return results;
 }
 
+export async function CreateSampleVoting(): Promise<Brother[]> {
+  await api.post("/brother/Claudia").catch((error) => {
+    console.log("Ocorreu o erro:", error);
+  });
+  await api.post("/brother/Marcelo").catch((error) => {
+    console.log("Ocorreu o erro:", error);
+  });
+  return CheckResults();
+}
+
 export async function Vote(
   name: string,
   recaptcha: string

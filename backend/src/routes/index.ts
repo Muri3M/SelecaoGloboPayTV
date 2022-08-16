@@ -10,7 +10,7 @@ routes.post("/brother/:name", async function (req: Request, res: Response) {
   res.header("Access-Control-Allow-Origin", "*");
 
   const brotherExists = await myDataSource.getRepository(Brother).findOneBy({
-    name: req.body.name,
+    name: req.params.name,
   });
   if (brotherExists === null) {
     const brother = myDataSource
