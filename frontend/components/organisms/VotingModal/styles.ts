@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 6px solid #c6c6c6;
+  border: 6px solid ${(props) => props.theme.colors.grey};
   border-radius: 10px;
 `;
 

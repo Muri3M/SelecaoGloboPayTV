@@ -1,7 +1,13 @@
 import React from "react";
 import Brother from "../../../models/Brother";
 
-import { BrotherName, BrotherPhoto, Container, Text } from "./styles";
+import {
+  BrotherName,
+  BrotherPhoto,
+  Container,
+  OrangeText,
+  Text,
+} from "./styles";
 
 interface BrotherMetricsProps {
   brother: Brother;
@@ -12,7 +18,7 @@ const BrotherMetrics: React.FC<BrotherMetricsProps> = ({ brother }) => {
     <Container>
       <BrotherName>
         {brother.name}
-        <span style={{ color: "#fc9414" }}>Votos: {brother.votes}</span>
+        <OrangeText>Votos: {brother.votes}</OrangeText>
       </BrotherName>
       <BrotherPhoto src={`/images/${brother.name}.png`} />
     </Container>

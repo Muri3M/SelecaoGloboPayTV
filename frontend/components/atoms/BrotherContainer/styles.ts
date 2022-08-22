@@ -15,8 +15,10 @@ export const BrotherPhoto = styled.img<ImageProps>`
 
   cursor: pointer;
   border-radius: 5px;
-  border: ${(props: ImageProps) =>
-    props.selected ? "4px solid #fc9414" : " 1px solid #c6c6c6"};
+  border: ${(props) =>
+    props.selected
+      ? `4px solid ${props.theme.colors.main}`
+      : `1px solid ${props.theme.colors.grey}`};
 `;
 
 export const Container = styled.div`

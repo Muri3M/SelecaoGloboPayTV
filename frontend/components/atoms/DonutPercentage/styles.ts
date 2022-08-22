@@ -25,12 +25,11 @@ export const Donut = styled.div<DonutProps>`
   transform: rotate(240deg);
   border: 3px solid white;
   background: conic-gradient(
-    ${(props: DonutProps) => (props.first ? "#fc9414" : "#c4c4c4")} 0deg
-      ${(props: DonutProps) => props.percent}deg,
-    white ${(props: DonutProps) => props.percent}deg
-      ${(props: DonutProps) => props.percent + 1}deg,
-    ${(props: DonutProps) => (props.first ? "#c4c4c4" : "#fc9414")}
-      ${(props: DonutProps) => props.percent + 1}deg 240deg,
+    ${(props) => (props.first ? props.theme.colors.main : "#c4c4c4")} 0deg
+      ${(props) => props.percent}deg,
+    white ${(props) => props.percent}deg ${(props) => props.percent + 1}deg,
+    ${(props) => (props.first ? "#c4c4c4" : props.theme.colors.main)}
+      ${(props) => props.percent + 1}deg 240deg,
     white 240deg 360deg
   );
 `;
@@ -49,7 +48,7 @@ export const Hole = styled.div`
   height: 220px;
   border-radius: 50%;
   transform: rotate(-240deg);
-  background: #fff;
+  background: #ffffff;
 `;
 
 export const Label = styled.div`

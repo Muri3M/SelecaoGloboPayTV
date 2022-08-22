@@ -19,7 +19,7 @@ export const Cell = styled.div`
 
   width: 90px;
   height: 40px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid ${(props) => props.theme.colors.grey};
 `;
 
 export const VotesCell = styled.div`
@@ -33,7 +33,7 @@ export const VotesCell = styled.div`
 
   width: 190px;
   height: 40px;
-  border: 1px solid #c6c6c6;
+  border: 1px solid ${(props) => props.theme.colors.grey};
 `;
 
 export const Row = styled.div`

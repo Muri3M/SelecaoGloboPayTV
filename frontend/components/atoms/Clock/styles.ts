@@ -15,7 +15,7 @@ export const Text = styled.span`
 `;
 
 export const Time = styled.span`
-  color: #fc9414;
+  color: ${(props) => props.theme.colors.main};
   font-size: 36px;
   text-align: center;
   font-family: "${(props) => props.theme.fonts}";

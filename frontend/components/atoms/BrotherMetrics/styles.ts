@@ -26,3 +26,7 @@ export const Text = styled.span`
   font-family: "${(props) => props.theme.fonts}";
   max-width: 340px;
 `;
+
+export const OrangeText = styled(Text)`
+  color: ${(props) => props.theme.colors.main};
+`;

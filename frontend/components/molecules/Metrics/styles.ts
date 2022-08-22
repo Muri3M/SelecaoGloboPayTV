@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  border: 6px solid #c6c6c6;
+  border: 6px solid ${(props) => props.theme.colors.grey};
   border-radius: 10px;
 `;
 
@@ -31,4 +31,8 @@ export const Text = styled.h1`
   text-align: center;
   font-weight: 400;
   margin: 2px;
+`;
+
+export const OrangeText = styled(Text)`
+  color: ${(props) => props.theme.colors.main};
 `;

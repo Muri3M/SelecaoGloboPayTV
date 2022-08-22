@@ -4,7 +4,13 @@ import Brother from "../../../models/Brother";
 import BrotherMetrics from "../../atoms/BrotherMetrics";
 import VotesPerHourMetrics from "../../atoms/VotesPerHourMetrics";
 
-import { BrothersContainer, Container, Divider, Text } from "./styles";
+import {
+  BrothersContainer,
+  Container,
+  Divider,
+  OrangeText,
+  Text,
+} from "./styles";
 
 const Metrics: React.FC = () => {
   const [brothers, setBrothers] = useState<Brother[]>([]);
@@ -30,7 +36,7 @@ const Metrics: React.FC = () => {
       {brothers.length > 1 ? (
         <>
           <Text>Total de geral de votos:</Text>
-          <Text style={{ color: "#fc9414" }}> {total}</Text>
+          <OrangeText> {total}</OrangeText>
           <Divider />
 
           <Text>Votos por emparedado:</Text>
