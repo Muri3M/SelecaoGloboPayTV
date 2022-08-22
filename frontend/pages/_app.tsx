@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import ResetCss from "../components/atoms/ResetCss";
+import ResetCss from "../style/ResetCss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
