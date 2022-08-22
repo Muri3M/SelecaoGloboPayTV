@@ -11,12 +11,12 @@ export const Text = styled.span`
   color: #b1b1b1;
 
   text-align: center;
-  font-family: "Segoe UI";
+  font-family: "Roboto";
 `;
 
 export const Time = styled.span`
   color: #fc9414;
   font-size: 36px;
   text-align: center;
-  font-family: "Segoe UI";
+  font-family: "Roboto";
 `;

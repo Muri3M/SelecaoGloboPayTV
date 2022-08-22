@@ -27,7 +27,7 @@ export const Divider = styled.div`
 `;
 
 export const Text = styled.h1`
-  font-family: "Segoe UI";
+  font-family: "Roboto";
   text-align: center;
   font-weight: 400;
   margin: 2px;

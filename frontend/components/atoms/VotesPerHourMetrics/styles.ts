@@ -13,7 +13,7 @@ export const Cell = styled.div`
   justify-content: center;
   align-items: center;
 
-  font-family: "Segoe UI";
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 22px;
 
@@ -27,7 +27,7 @@ export const VotesCell = styled.div`
   justify-content: center;
   align-items: center;
 
-  font-family: "Segoe UI";
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 22px;
 

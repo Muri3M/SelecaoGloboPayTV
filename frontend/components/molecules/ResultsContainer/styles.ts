@@ -26,7 +26,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const Text = styled.h3`
-  font-family: "Helvetica";
+  font-family: "Roboto";
   text-align: center;
   font-size: 22px;
   font-weight: 200;
