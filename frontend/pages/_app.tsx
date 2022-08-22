@@ -1,6 +1,9 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "styled-components";
 import ResetCss from "../style/ResetCss";
+import theme from "../style/Theme";
+import Theme from "../style/Theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <ResetCss />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
