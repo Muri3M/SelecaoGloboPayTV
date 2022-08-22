@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BrotherName = styled.h3`
   display: flex;
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   font-size: 22px;
   margin: 2px;
   justify-content: space-between;
@@ -23,6 +23,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   max-width: 340px;
 `;

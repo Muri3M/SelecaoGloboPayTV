@@ -27,7 +27,7 @@ export const Divider = styled.div`
 `;
 
 export const Text = styled.h1`
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   text-align: center;
   font-weight: 400;
   margin: 2px;

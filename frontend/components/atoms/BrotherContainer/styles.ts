@@ -5,7 +5,7 @@ interface ImageProps {
 }
 
 export const BrotherName = styled.h3`
-  font-family: "Roboto";
+  font-family: ${(props) => props.theme.fonts};
   font-size: 22px;
   margin: 2px;
 `;
@@ -26,6 +26,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   max-width: 340px;
 `;

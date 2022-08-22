@@ -29,7 +29,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   font-weight: 100;
   text-align: center;
 `;
@@ -46,7 +46,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Warning = styled.span`
-  font-family: "Roboto";
+  font-family: "${(props) => props.theme.fonts}";
   text-align: center;
   color: #cc3300;
   margin-top: 10px;
