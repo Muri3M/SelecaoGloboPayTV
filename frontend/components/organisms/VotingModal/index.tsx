@@ -60,6 +60,10 @@ const VotingModal: React.FC = () => {
     setValidate(false);
   }
 
+  function refreshPage() {
+    window.location.reload();
+  }
+
   const createSample = async () => {
     console.log("oi");
     const results = await CreateSampleVoting();
@@ -78,7 +82,10 @@ const VotingModal: React.FC = () => {
           </TitleWrapper>
 
           {voted ? (
-            <ResultsContainer voted={selected} brothers={votingResults} />
+            <>
+              <Button onClick={refreshPage}>Votar novamente</Button>
+              <ResultsContainer voted={selected} brothers={votingResults} />
+            </>
           ) : (
             <>
               <BrothersWrapper>
